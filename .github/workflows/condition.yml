@@ -1,0 +1,16 @@
+name: "Conditional Actions"
+
+on: [push]
+
+jobs:
+    job-two:
+        runs-on: ubuntu-latest
+        steps:
+            - name: stepB
+              run: echo "World"
+        needs: job-one
+    job-one:
+        runs-on: ubuntu-latest
+        steps:
+            - name: stepA
+              run: echo "Hello"
