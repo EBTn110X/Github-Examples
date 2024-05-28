@@ -1,0 +1,24 @@
+name: 'Environment Workflow'
+
+on: [push]
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - id: step1A
+              run: |
+                echo "test=hello" >> $GITHUB_OUTPUT
+                echo "othertest=world" >> $GITHUB_ENV
+            - id: step1B
+              run: echo "test=$othertest" >> $GITHUB_OUTPUT
+        outputs:
+            output1: ${{ steps.step1A.outputs.test }}
+            output2: ${{ steps.step1A.outputs.test }}
+    job2:
+        runs-on: ubuntu-latests
+        needs: job1
+        steps:
+            - name: step2A
+              run: |
+                echo "${{ needs.job1.outputs.output1 }} ${{ needs.job1.outputs.output2 }}"
