@@ -1,15 +1,15 @@
-name: 'context action'
+name: 'context-action'
 
 on: [push]
 
 jobs:
-    context-job:
-        runs-on: ubuntu-latest
-        env:
-          MY_ACTOR: ${{ github.actor }}
-          MY_REPO: ${{ github.repository }}
-        steps:
-            - name: 'step 1'
-              run: |
-                echo: 'Hi ${{ env.MY_ACTOR }}'
-                echo: 'The repo is ${{ env.MY_REPO}}'
+  context-job:
+    runs-on: ubuntu-latest
+    env:
+      MY_ACTOR: ${{ github.actor }}
+      MY_REPO: ${{ github.repository }}
+    steps:
+      - name: 'step 1'
+        run: |
+          echo: 'Hi ${{ env.MY_ACTOR }}'
+          echo: 'The repo is ${{ env.MY_REPO}}'
