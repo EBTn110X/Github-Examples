@@ -5,16 +5,35 @@ on: [push]
 jobs:
   command-job:
     runs-on: ubuntu-latest
+    env:
+      MY_NAME: "Mona The Octocat"
     steps:
-      - name: group-logging
+      - name: 'step 1: group logging'
         run: |
           echo '::group::group message'
           echo 'message 1'
           echo 'message 2'
           echo '::endgroup::'
-      - name: 'step 1: create env variable'
+      - name: 'step 2: create env variable'
         run: |
           echo "MYVAR=hi!" >> $GITHUB_ENV
-      - name: 'step 2: use the env variable'
+      - name: 'step 3: use the env variable'
         run:
           echo $MYVAR
+      - name: 'step 4: add paths'
+        run: |
+          echo '/path/to/dir' >> $GITHUB_PATH
+          echo '/path/to/otherdir' >> $GITHUB_PATH
+      - name: 'step 5: show path'
+        run: |
+          echo '$PATH'
+      - name: 'step 6: debug'
+        run: |
+          echo '::debug::This is a debug message'
+      - name: 'step 7: warning'
+        run: |
+          echo '::warning::This is a warning'
+      - name: 'step 8: mask'
+        run: |
+          echo '::add-mask::$MY_NAME'
+          echo '$MY_NAME'
