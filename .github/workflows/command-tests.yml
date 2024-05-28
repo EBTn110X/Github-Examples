@@ -1,6 +1,6 @@
 name: 'command-tests'
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   command-job:
