@@ -7,9 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_ACTOR: ${{ github.actor }}
-      MY_REPO: ${{ github.repository }}
     steps:
       - name: 'step 1'
         run: |
           echo "Hi $MY_ACTOR"
-          echo "The repo is $MY_REPO"
+          echo "The repo is ${{ github.repository }}"
