@@ -3,7 +3,7 @@ name: 'command-tests'
 on: [push]
 
 jobs:
-  commandJob:
+  command-job:
     runs-on: ubuntu-latest
     steps:
       - name: group-logging
@@ -12,3 +12,9 @@ jobs:
           echo 'message 1'
           echo 'message 2'
           echo '::endgroup::'
+      - name: 'step 1: create env variable'
+        run: |
+          echo "MYVAR=hi!" >> $GITHUB_ENV
+      - name: 'step 2: use the env variable'
+        run:
+          echo $MYVAR
