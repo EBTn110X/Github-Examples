@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: 'step 1'
         run: |
-          echo: 'Hi ${{ env.MY_ACTOR }}'
-          echo: 'The repo is ${{ env.MY_REPO}}'
+          echo: "Hi $MY_ACTOR"
+          echo: "The repo is $MY_REPO"
