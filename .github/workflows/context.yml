@@ -1,0 +1,14 @@
+name: 'context examples'
+
+on: [push]
+
+jobs:
+    context-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'step 1'
+              env:
+                MY_ACTOR: ${{ github.actor }}
+              run: |
+                echo: 'Hi ${{ env.MY_ACTOR }}'
+                echo: 'The repo is ${{ github.action_repository}}'
