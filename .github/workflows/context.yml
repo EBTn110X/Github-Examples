@@ -9,6 +9,7 @@ jobs:
             - name: 'step 1'
               env:
                 MY_ACTOR: ${{ github.actor }}
+                MY_REPO: ${{ github.repository }}
               run: |
                 echo: 'Hi ${{ env.MY_ACTOR }}'
-                echo: 'The repo is ${{ github.action_repository}}'
+                echo: 'The repo is ${{ env.MY_REPO}}'
