@@ -1,0 +1,14 @@
+name: 'command-tests'
+
+on: [push]
+
+jobs:
+  commandJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: group-logging
+        run: |
+          echo '::group::group message'
+          echo 'message 1'
+          echo 'message 2'
+          echo '::endgroup::'
